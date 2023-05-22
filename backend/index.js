@@ -10,6 +10,7 @@ dotenv.config();
 
 // import routers
 const pangolinRouter = require("./pangolin");
+const friendRouter = require("./friend");
 
 // disable mongoose warning
 mongoose.set("strictQuery", true);
@@ -31,6 +32,7 @@ app.use((req, res, next) => {
 
 // routing
 app.use("/pangolin", pangolinRouter, cors());
+app.use("/friend", friendRouter, cors());
 
 // app listening
 app.listen(port, () => {

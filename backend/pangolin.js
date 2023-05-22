@@ -8,7 +8,7 @@ const { v4: uuidv4 } = require("uuid");
 const jwtSecretKey = process.env.JWT_SECRET_KEY;
 
 // models
-const { PangolinModel, PangolinScheme } = require("./schemes");
+const { PangolinModel, FriendListModel } = require("./schemes");
 
 // class types          ps: could've used typescript but too much debugging for the little time I have
 const classList = ["guerrier", "alchimiste", "sorcier", "espion", "enchanteur"];
@@ -47,8 +47,14 @@ router.post("/new", async (req, res) => {
           class: req.body.class,
         });
 
+        const friendList = new FriendListModel({
+          user: req.body.username,
+          friends: [],
+        });
+
         // saving user to db
         await pangolin.save();
+        await friendList.save();
         res.status(200).send("Successfully created!");
       } catch (error) {
         console.log(error);
@@ -60,6 +66,21 @@ router.post("/new", async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(400).send("Bad Request");
+  }
+});
+
+router.get("/view/:name", async (req, res) => {
+  try {
+    const query = await PangolinModel.findOne({ username: req.params.name });
+
+    const userRes = {
+      username: query.username,
+      class: query.class,
+    };
+
+    res.status(200).send(userRes);
+  } catch (error) {
+    res.status(404).send("User not found");
   }
 });
 

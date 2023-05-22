@@ -2,16 +2,16 @@ const mongoose = require("mongoose");
 
 // mongoose schemes
 
-const PangolinScheme = mongoose.Schema({
+const PangolinScheme = new mongoose.Schema({
   uid: String,
   username: String,
   password: String,
   class: String,
 });
 
-const FriendList = mongoose.Schema({
+const FriendList = new mongoose.Schema({
   user: String,
-  friends: Array,
+  friends: [],
 });
 
 // models init
