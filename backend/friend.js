@@ -100,4 +100,20 @@ router.delete("/remove", async (req, res) => {
   }
 });
 
+router.get("/get", async (req, res) => {
+  try {
+    let token = parseToken(req.headers.authorization);
+    let decoded = jwt.verify(token, jwtSecretKey);
+
+    const searchList = await FriendListModel.findOne({
+      username: decoded.username,
+    });
+
+    res.status(200).send(searchList.friends);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send();
+  }
+});
+
 module.exports = router;
