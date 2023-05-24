@@ -7,5 +7,4 @@ import { Component, Input } from '@angular/core';
 })
 export class FriendCardComponent {
   @Input() name = '';
-  @Input() class = '';
 }

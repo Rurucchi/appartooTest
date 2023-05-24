@@ -9,7 +9,6 @@ const jwtSecretKey = process.env.JWT_SECRET_KEY;
 const { FriendListModel, PangolinModel } = require("./schemes");
 
 function parseToken(token) {
-  token = token.slice(7);
   return token;
 }
 

@@ -15,5 +15,7 @@ export default async function updateUser(
       console.log(error);
       return false;
     }
+  } else {
+    return false;
   }
 }

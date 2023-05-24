@@ -1,18 +1,26 @@
 <div class="userInfoContainer">
   <div class="inputContainer">
     <h1>Update User Info</h1>
-    <mat-form-field class="input">
-      <mat-label>Username</mat-label>
-      <input matInput />
+
+    <mat-form-field>
+      <mat-label>Favorite food</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let choice of choice" [value]="choice.value">
+          {{ choice.viewValue }}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
-    <mat-form-field class="input">
-      <mat-label>Password</mat-label>
-      <input matInput />
-    </mat-form-field>
+
     <mat-form-field class="input">
       <mat-label> Class </mat-label>
-      <input matInput />
+      <input
+        matInput
+        [(ngModel)]="this.inputData"
+        (ngModelChange)="setInput($event)"
+      />
     </mat-form-field>
-    <button mat-raised-button color="primary">Save</button>
+    <button mat-raised-button color="primary" (click)="updateUserInfo()">
+      Save
+    </button>
   </div>
 </div>

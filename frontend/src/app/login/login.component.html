@@ -3,12 +3,26 @@
     <h1>Login</h1>
     <mat-form-field class="input">
       <mat-label>Username</mat-label>
-      <input matInput />
+      <input
+        matInput
+        [(ngModel)]="this.username"
+        (ngModelChange)="setUsername($event)"
+      />
     </mat-form-field>
     <mat-form-field class="input">
       <mat-label>Password</mat-label>
-      <input matInput />
+      <input
+        matInput
+        [(ngModel)]="this.password"
+        (ngModelChange)="setPassword($event)"
+      />
     </mat-form-field>
-    <button mat-raised-button color="primary">Login</button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="loginUser(this.username, this.password)"
+    >
+      Login
+    </button>
   </div>
 </div>

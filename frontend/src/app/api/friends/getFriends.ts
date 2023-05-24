@@ -6,7 +6,7 @@ export default async function getFriends() {
         method: 'GET',
         headers: { 'Content-Type': 'application/json', Authorization: token },
       });
-      return true;
+      return request.json();
     } catch (error) {
       console.log(error);
       return false;

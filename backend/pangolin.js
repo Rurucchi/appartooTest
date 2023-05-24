@@ -30,7 +30,6 @@ async function checkIfUserExists(username) {
 }
 
 function parseToken(token) {
-  token = token.slice(7);
   return token;
 }
 

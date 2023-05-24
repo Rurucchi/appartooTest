@@ -20,3 +20,10 @@
   justify-content: center;
   gap: 10px;
 }
+
+.friendCardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+}

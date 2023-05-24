@@ -4,10 +4,21 @@
     <div class="addFriend">
       <mat-form-field class="input">
         <mat-label>Friend name</mat-label>
-        <input matInput />
+        <input
+          matInput
+          [(ngModel)]="this.username"
+          (ngModelChange)="setUsername($event)"
+        />
       </mat-form-field>
-      <button mat-raised-button color="primary">Add Friend</button>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="addFriendUser(this.username)"
+      >
+        Add Friend
+      </button>
     </div>
-    <app-friend-card name="a"></app-friend-card>
+    <div class="friendCardContainer" id="friendList"></div>
   </div>
 </div>
+<app-logout-button />
