@@ -18,7 +18,13 @@
         Add Friend
       </button>
     </div>
-    <div class="friendCardContainer" id="friendList"></div>
+    <div
+      class="friendCardContainer"
+      id="friendList"
+      *ngFor="let element of list"
+    >
+      <app-friend-card name="{{ element }}"></app-friend-card>
+    </div>
   </div>
 </div>
 <app-logout-button />

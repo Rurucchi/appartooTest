@@ -19,6 +19,8 @@ import { LogoutButtonComponent } from './logout-button/logout-button.component';
 import { NgFor } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { FriendsDisplayComponent } from './friends-display/friends-display.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +30,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     UpdateUserComponent,
     FriendCardComponent,
     LogoutButtonComponent,
+    FriendsDisplayComponent,
   ],
   imports: [
     RouterModule.forRoot([
